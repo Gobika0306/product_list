@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <script>
+        function loadProducts() {
+            fetch('/products/')
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById('productList');
+                    productList.innerHTML = '';
+                    data.products.forEach(product => {
+                        const productItem = document.createElement('li');
+                        productItem.textContent = `${product.name} - $${product.price}`;
+                        productList.appendChild(productItem);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Load products when the page loads
+        window.onload = loadProducts;
+    </script>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul id="productList">
+        <!-- Product items will be inserted here by JavaScript -->
+    </ul>
+</body>
+</html>

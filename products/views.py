@@ -33,6 +33,6 @@ def product_list(request):
         response = requests.get('https://dummyapi.online/api/products')
         if response.status_code == 200:
             products = response.json()
-            return JsonResponse(products, safe=False)  # Return the products as JSON
+            return JsonResponse(products, safe=False) 
         return JsonResponse({"error": "Unable to fetch products"}, status=500)
     return JsonResponse({"error": "Method not allowed"}, status=405)

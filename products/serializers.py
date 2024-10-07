@@ -1,4 +1,3 @@
-# accounts/serializers.py
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -27,10 +26,6 @@ class LoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Invalid Credentials")
-
-
-# products/serializers.py
-from rest_framework import serializers
 
 class ProductSerializer(serializers.Serializer):
     id = serializers.IntegerField()

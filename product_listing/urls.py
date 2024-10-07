@@ -3,7 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('products.urls')),  # Correctly include the products app URLs
+    path('api/', include('products.urls')),  
 ]
 
 
